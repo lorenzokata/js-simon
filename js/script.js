@@ -6,10 +6,8 @@ for (var i = 0; i < 5; i++) {
 
 alert(array);
 
-setTimeout(numeriIndovinati(array), 30000);
-
-console.log('I numeri indovinati sono ' );
-
+setTimeout(numeriIndovinati, 30000, array);
+console.log('I numeri indovinati sono ' + indovinati.length + ': ' + indovinati);
 
 function numeriIndovinati(array) {
 
@@ -27,3 +25,5 @@ function numeriIndovinati(array) {
     return indovinati;
 
 }
+
+// COME SALVO IL RISULTATO (RETURN) DI UNA FUNZIONE CHIAMATA TRAMITE setTimeout IN UNA VARIABILE?????
