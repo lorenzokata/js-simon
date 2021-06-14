@@ -1,13 +1,26 @@
 var array = [];
 
-for (var i = 0; i < 5; i++) {
-    array.push(Math.floor(Math.random()*10)+1);
+while (array.length < 5) {
+    var numeroRandom = Math.floor(Math.random()*100)+1;
+    if (!array.includes(numeroRandom)) {
+        array.push(numeroRandom);
+    }
 }
 
 alert(array);
 
-setTimeout(numeriIndovinati, 30000, array);
-console.log('I numeri indovinati sono ' + indovinati.length + ': ' + indovinati);
+setTimeout(function(){
+
+    var risultato = numeriIndovinati(array);
+
+    if (risultato.length == 0) {
+        console.log('Non hai indovinato nessun numero');
+    } else{
+        console.log('Hai indovinato ' + risultato.length + ' numeri, che sono: ' + risultato);
+    }
+
+}, 3000);
+
 
 function numeriIndovinati(array) {
 
@@ -15,15 +28,15 @@ function numeriIndovinati(array) {
 
     for (var i = 0; i < 5; i++) {
     
-        var numero = prompt('Inserisci il ' + (i+1) + '° numero');
+        var numero = parseInt(prompt('Inserisci il ' + (i+1) + '° numero'));
 
-        if (numero == array[i]) {
+        if (array.includes(numero) && !indovinati.includes(numero)) {
             indovinati.push(numero);
         }
     }
 
+    console.log(indovinati);
+
     return indovinati;
 
 }
-
-// COME SALVO IL RISULTATO (RETURN) DI UNA FUNZIONE CHIAMATA TRAMITE setTimeout IN UNA VARIABILE?????
